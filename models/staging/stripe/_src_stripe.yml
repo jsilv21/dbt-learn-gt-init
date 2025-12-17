@@ -1,12 +1,11 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: stripe
     database: raw
-    schema: jaffle_shop
+    schema: stripe
     tables:
-      - name: customers
-      - name: orders
+      - name: payment
         config:
           freshness:
             warn_after:
@@ -15,4 +14,4 @@ sources:
             error_after:
               count: 48
               period: hour
-          loaded_at_field: _ETL_LOADED_AT
+          loaded_at_field: _BATCHED_AT
