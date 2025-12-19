@@ -6,6 +6,12 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
+        columns:
+          - name: id
+            description: "Unique identifier for each customer"
+            data_tests:
+              - unique
+              - not_null
       - name: orders
         config:
           freshness:
