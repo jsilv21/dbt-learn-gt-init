@@ -2,10 +2,12 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: "Clone of a postgres database for Jaffle Shop"
     database: raw
     schema: jaffle_shop
     tables:
       - name: customers
+        description: "Raw customers data for Jaffle Shop"
         columns:
           - name: id
             description: "Unique identifier for each customer"
