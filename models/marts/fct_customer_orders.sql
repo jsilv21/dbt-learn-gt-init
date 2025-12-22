@@ -1,46 +1,35 @@
--- import ctes
-
-with raw_customers as (
-    select * from {{source('jaffle_shop', 'customers')}}
-),
-raw_orders as (
-    select * from {{source('jaffle_shop', 'orders')}}
-),
-raw_payments as (
-    select * from {{source('stripe', 'payment')}}
-),
 -- logical ctes
 ---- staging
-customers as (
+with customers as (
     select
-        id as customer_id,
+        customer_id,
         first_name || ' ' || last_name as full_name,
         last_name as surname,
         first_name as givenname
-    from raw_customers
+    from {{ref('stg_jaffle_shop_customers')}}
 ),
 
 orders as (
     select
-        row_number() over(partition by user_id order by order_date, id) as user_order_seq,
-        id as order_id,
-        user_id as customer_id,
+        row_number() over(partition by customer_id order by order_date, order_id) as user_order_seq,
+        order_id,
+        customer_id,
         order_date,
         status as order_status,
         _etl_loaded_at
-    from raw_orders
+    from {{ref('stg_jaffle_shop_orders')}}
 ),
 
 payments as (
     select
-        id as payment_id,
-        orderid as order_id,
-        round(amount/100.0, 2) as payment_amount,
-        paymentmethod as payment_method,
+        payment_id,
+        order_id,
+        amount as payment_amount,
+        payment_method,
         status as payment_status,
         _batched_at,
-        created as payment_created_at
-    from raw_payments
+        created_at as payment_created_at
+    from {{ref('stg_stripe_payments')}}
 ),
 --- marts
 customer_order_history as (
