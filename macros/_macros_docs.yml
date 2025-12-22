@@ -6,3 +6,12 @@ macros:
         type: string
       - name: decimals
         type: int
+  - name: grant_select
+    description: Grant select on specific set of tables/views based on targets from env variables
+    arguments:
+      - name: schema
+        type: string
+      - name: role
+        type: string
+      - name: database
+        type: string
