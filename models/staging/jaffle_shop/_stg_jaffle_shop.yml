@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_jaffle_shop_customers
-    description: "Staging table for Jaffle Shop customers"
+    description: "Staging table for Jaffle Shop customers. One unique customer per row."
     columns:
       - name: customer_id
         description: "Unique identifier for each customer"
@@ -22,18 +22,11 @@ models:
         data_tests:
           - not_null
       - name: status
-        description: "Status of the order (e.g., 'completed', 'pending')"
+        description: '{{doc("order_status")}}'
         data_tests:
           - accepted_values:
               arguments:
-                values:
-                  [
-                    "placed",
-                    "shipped",
-                    "completed",
-                    "returned",
-                    "return_pending",
-                  ]
+                values: ["placed", "shipped", "completed", "returned"]
       - name: customer_id
         data_tests:
           - relationships:
