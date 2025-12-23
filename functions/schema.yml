@@ -1,0 +1,14 @@
+functions:
+  - name: safe_divide # required
+    description: Safely divide a numerator by a denominator where that value might be zero.
+    # config:
+    #   schema: udf_schema
+    #   database: udf_db
+    #   volatility: deterministic
+    arguments: # optional
+      - name: numerator # required if arguments is specified
+        data_type: number # required if arguments is specified
+      - name: denominator # required if arguments is specified
+        data_type: number # required if arguments is specified
+    returns: # required
+      data_type: number # required

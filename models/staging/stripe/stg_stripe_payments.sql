@@ -5,6 +5,7 @@ select
     status,
     -- amount is stored in cents, convert it to dollars
     {{ cents_to_dollars("amount", 2) }} as amount,
-    created as created_at
+    created as created_at,
+    _batched_at
 
 from {{source('stripe', 'payment')}}
