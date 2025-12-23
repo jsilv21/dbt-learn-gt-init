@@ -23,7 +23,7 @@ customer_orders as (
 
 customer_average_order_value as (select 
     *,
-    customer_total_lifetime_value / NULLIF(customer_non_returned_order_count, 0) as customer_avg_non_returned_order_value --! fix safe div by zero
+    {{function('safe_divide')}}(customer_total_lifetime_value, customer_non_returned_order_count) as customer_avg_non_returned_order_value
     from customer_orders
 )
 
