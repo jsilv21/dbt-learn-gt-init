@@ -19,6 +19,10 @@ models:
       - name: amount
         description: returned dollar amount of order
         data_tests:
+          - dbt_utils.expression_is_true:
+              expression: "<=5"
+              config:
+                error_if: ">=100" #warning unless above this threshold
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0  # (Optional)
               max_value: 100 # (Optional)
