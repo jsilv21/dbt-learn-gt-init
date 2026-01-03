@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: int_customers
+    description: "Intermediate customers model"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jaffle_shop_customers') # Assuming reference to staging; adjust if different
+                field: customer_id
+      # Add other columns and tests as needed

@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: int_orders
+    description: "Intermediate orders model"
+    columns:
+      - name: order_id
+        description: "Order identifier"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jaffle_shop_orders') # Assuming reference to staging; adjust if different
+                field: order_id
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('int_customers')
+                field: customer_id
+      # Add other columns and tests as needed

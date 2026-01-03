@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Dimension table for customers"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('int_customers') # Assuming reference to intermediate; adjust if different
+                field: customer_id
+      # Add other columns and tests as needed

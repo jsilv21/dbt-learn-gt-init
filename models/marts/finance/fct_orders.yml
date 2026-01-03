@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Fact table for orders"
+    columns:
+      - name: order_id
+        description: "Order identifier"
+        data_tests:
+          - unique # Assuming order_id is unique
+          - not_null
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      # Add other columns and tests as needed
