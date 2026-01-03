@@ -15,3 +15,13 @@ sources:
               count: 48
               period: hour
           loaded_at_field: _BATCHED_AT
+        columns:
+          - name: id
+            description: payment identifier
+            data_tests:
+              - unique:
+                  config:
+                    error_if: ">100"
+                    warn_if: ">10"
+
+                

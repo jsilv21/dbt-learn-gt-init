@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Dimension table for customers"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - unique
+          - not_null
+          # RELATIONSHIP TEST HERE IS REDUNDANT SINCE BUILT OFF STG TABLE IN DAG
+          # - relationships:
+          #     arguments:
+          #       to: ref('stg_jaffle_shop_customers')
+          #       field: customer_id
+          - dbt_utils.cardinality_equality:
+              field: customer_id
+              to: ref('stg_jaffle_shop_customers')
+

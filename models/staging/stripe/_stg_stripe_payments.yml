@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_stripe_payments
+    description: "Staging table for Stripe payments. One unique payment per row."
+    columns:
+      - name: payment_id
+        description: "Unique identifier for each payment"
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Identifier for the order associated with the payment"
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: "Method used for payment"
+        data_tests:
+          - not_null
+      - name: status
+        description: "Payment status"
+        data_tests:
+          - not_null
+      - name: amount
+        description: "Amount paid in the transaction, converted to dollars (source is in cents)"
+        data_tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp when the payment was created"
+        data_tests:
+          - not_null
+      - name: _batched_at
+        description: "Timestamp when the payment was batched"
+        data_tests:
+          - not_null

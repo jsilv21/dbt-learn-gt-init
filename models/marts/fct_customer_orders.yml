@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fct_customer_orders
+    description: "Fact table for customer orders"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+      - name: order_id
+        description: "Order identifier"
+        data_tests:
+          # - unique # Not unqiue as some will have multiple payment statuses such as fail/success
+          - not_null
+          # - relationships: -- this is redundant
+          #     arguments:
+          #       to: ref('fct_orders')
+          #       field: order_id

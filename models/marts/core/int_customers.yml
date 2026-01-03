@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: int_customers
+    description: "Intermediate customers model"
+    columns:
+      - name: customer_id
+        description: "Customer identifier"
+        # data_tests:
+        #   - relationships: -- this is redundant
+        #       arguments:
+        #         to: ref('stg_jaffle_shop_customers')
+        #         field: customer_id
