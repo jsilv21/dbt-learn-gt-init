@@ -13,10 +13,6 @@ models:
         description: "Identifier for the order associated with the payment"
         data_tests:
           - not_null
-      - name: amount
-        description: "Payment amount"
-        data_tests:
-          - not_null
       - name: payment_method
         description: "Method used for payment"
         data_tests:
