@@ -24,4 +24,4 @@ models:
               max_value: 100 # (Optional)
               #row_condition: "id is not null" # (Optional)
               strictly: false # (Optional. Default is 'false'. Adds an 'or equal to' to the comparison operator for min/max)
-        #   - greater_than_five #example of a generic test we build custom
+      #   - greater_than_five #example of a generic test we build custom

@@ -14,4 +14,7 @@ models:
           #     arguments:
           #       to: ref('stg_jaffle_shop_customers')
           #       field: customer_id
+          - dbt_utils.cardinality_equality:
+              field: customer_id
+              to: ref('stg_jaffle_shop_customers')
 
