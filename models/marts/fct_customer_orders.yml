@@ -14,7 +14,7 @@ models:
       - name: order_id
         description: "Order identifier"
         data_tests:
-          # - unique - Not unqiue as some will have multiple payment statuses such as fail/success
+          # - unique # Not unqiue as some will have multiple payment statuses such as fail/success
           - not_null
           # - relationships: -- this is redundant
           #     arguments:
