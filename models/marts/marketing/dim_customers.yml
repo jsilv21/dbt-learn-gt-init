@@ -9,8 +9,9 @@ models:
         data_tests:
           - unique
           - not_null
-          - relationships:
-              arguments:
-                to: ref('int_customers')
-                field: customer_id
-      # Add other columns and tests as needed
+          # RELATIONSHIP TEST HERE IS REDUNDANT SINCE BUILT OFF STG TABLE IN DAG
+          # - relationships:
+          #     arguments:
+          #       to: ref('stg_jaffle_shop_customers')
+          #       field: customer_id
+

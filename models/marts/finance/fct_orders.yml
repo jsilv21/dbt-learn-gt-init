@@ -14,6 +14,6 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('dim_customers')
+                to: ref('dim_customers') #note this would fail for guest orders or something
                 field: customer_id
       # Add other columns and tests as needed

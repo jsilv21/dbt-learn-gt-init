@@ -6,9 +6,8 @@ models:
     columns:
       - name: customer_id
         description: "Customer identifier"
-        data_tests:
-          - relationships:
-              arguments:
-                to: ref('stg_jaffle_shop_customers')
-                field: customer_id
-      # Add other columns and tests as needed
+        # data_tests:
+        #   - relationships: -- this is redundant
+        #       arguments:
+        #         to: ref('stg_jaffle_shop_customers')
+        #         field: customer_id
