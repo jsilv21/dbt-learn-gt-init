@@ -16,4 +16,6 @@ models:
               arguments:
                 to: ref('dim_customers') #note this would fail for guest orders or something
                 field: customer_id
-      # Add other columns and tests as needed
+      - name: amount
+        # data_tests:
+        #   - greater_than_five #example of a generic test we build custom
