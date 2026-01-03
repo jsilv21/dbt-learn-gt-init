@@ -9,7 +9,7 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_jaffle_shop_orders') # Assuming reference to staging; adjust if different
+                to: ref('stg_jaffle_shop_orders')
                 field: order_id
       - name: customer_id
         description: "Customer identifier"

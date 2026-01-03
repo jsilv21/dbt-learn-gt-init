@@ -29,7 +29,7 @@ models:
         description: "Timestamp when the payment was created"
         data_tests:
           - not_null
-      - name: batched_at
+      - name: _batched_at
         description: "Timestamp when the payment was batched"
         data_tests:
           - not_null

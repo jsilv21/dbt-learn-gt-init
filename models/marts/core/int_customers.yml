@@ -9,6 +9,6 @@ models:
         data_tests:
           - relationships:
               arguments:
-                to: ref('stg_jaffle_shop_customers') # Assuming reference to staging; adjust if different
+                to: ref('stg_jaffle_shop_customers')
                 field: customer_id
       # Add other columns and tests as needed

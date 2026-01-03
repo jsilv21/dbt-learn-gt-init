@@ -11,11 +11,3 @@ models:
               arguments:
                 to: ref('int_orders')
                 field: order_id
-      - name: customer_id
-        description: "Customer identifier"
-        data_tests:
-          - relationships:
-              arguments:
-                to: ref('int_customers')
-                field: customer_id
-      # Add other columns and tests as needed

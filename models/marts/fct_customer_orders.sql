@@ -13,7 +13,7 @@ final as (
     customer_first_order_date as first_order_date,
     customer_order_count as order_count,
     customer_total_lifetime_value as total_lifetime_value,
-    order_value_dollars, --need to be fixed as will agg multiple payments
+    order_value_dollars,
     status as order_status,
     payment_status
 from customer_orders

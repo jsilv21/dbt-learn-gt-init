@@ -7,7 +7,7 @@ models:
       - name: order_id
         description: "Order identifier"
         data_tests:
-          - unique # Assuming order_id is unique
+          - unique
           - not_null
       - name: customer_id
         description: "Customer identifier"
